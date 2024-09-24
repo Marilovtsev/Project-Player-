@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     public string playerName = "Flash"; // ≤м'€ гравц€
-    public float speed = 5f; // Ўвидк≥сть гравц€
+    public float speed = 5f; // Ўвидк≥сть гравц€.
     public int health = 100; // «доров'€ гравц€
     
 
