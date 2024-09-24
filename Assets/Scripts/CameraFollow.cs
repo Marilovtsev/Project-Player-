@@ -1,0 +1,18 @@
+using UnityEngine;
+
+public class CameraFollow : MonoBehaviour
+
+{
+    public Transform target; // Об'єкт, за яким слідує камера (наш персонаж)
+    public float smoothSpeed = 0.125f; // Швидкість згладження
+    public Vector3 offset; // Відступ камери від персонажа
+
+    void LateUpdate()
+    {
+        Vector3 desiredPosition = target.position + offset; // Позиція, до якої повинна переміститися камера
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);  // Згладжена позиція камери
+        transform.position = smoothedPosition; // Встановлюємо нову позицію камери
+
+
+    }
+}
