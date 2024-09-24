@@ -9,7 +9,7 @@ public class PlayerStats : MonoBehaviour
 
     void Update()
     {
-        // Простий приклад руху гравця
+        // Простий приклад руху гравця.
         float move = speed * Time.deltaTime;
         transform.Translate(move, 0, 0);
     }
