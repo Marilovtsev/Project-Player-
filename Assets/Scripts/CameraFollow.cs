@@ -10,7 +10,7 @@ public class CameraFollow : MonoBehaviour
     void LateUpdate()
     {
         // Умова для перевірки, чи камера має слідувати
-        if (target.position.x <= 5) ;
+        if (target.position.x <= 55)
 
         {
             Vector3 desiredPosition = target.position + offset; // Позиція, до якої повинна переміститися камера
