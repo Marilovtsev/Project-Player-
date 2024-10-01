@@ -124,5 +124,8 @@ public class CameraTests
         // Створюємо об'єкти камери та гравця
         cameraObject = new GameObject();
         playerObject = new GameObject();
+
+        // Додаємо до камери скрипт CameraFollow (наш компонент)
+        cameraFollow = cameraObject.AddComponent<CameraFollow>();
     }
 }
