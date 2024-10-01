@@ -127,5 +127,8 @@ public class CameraTests
 
         // Додаємо до камери скрипт CameraFollow (наш компонент)
         cameraFollow = cameraObject.AddComponent<CameraFollow>();
+
+        // Вказуємо персонажа, за яким має стежити камера
+        cameraFollow.target = playerObject.transform;
     }
 }
