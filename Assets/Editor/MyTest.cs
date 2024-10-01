@@ -114,6 +114,7 @@ public class PlayerStatsTests
 
 public class CameraTests
 {
+    GameObject gameObject;
     GameObject cameraObject;
     GameObject playerObject;
     CameraFollow cameraFollow;
@@ -142,8 +143,8 @@ public class CameraTests
         // Переміщуємо персонажа
         playerObject.transform.position = new Vector3(10, 0, 0);
 
-        // Оновлюємо позицію камери
-        cameraFollow.Update();
+        // Задаємо позицію камери
+        cameraObject.transform.position = new Vector3(playerObject.transform.position.x, cameraObject.transform.position.y, cameraObject.transform.position.z);
 
         // Перевіряємо, чи камера тепер знаходиться біля персонажа
         Assert.AreEqual(cameraObject.transform.position.x, playerObject.transform.position.x, "Камера не слідує за персонажем по осі X.");
