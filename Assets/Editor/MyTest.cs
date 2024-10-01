@@ -161,7 +161,8 @@ public class CameraTests
 
         // Початкова позиція персонажа нижче межі
         playerObject.transform.position = new Vector3(50, 0, 0);
-        cameraObject.transform.position = new Vector3(50, 0, 0); // Камера на початковій позиції по осі Z
+        cameraObject.transform.position = new Vector3(50, 0, 10); // Камера на початковій позиції по осі Z
 
-
+        // Оновлюємо позицію камери через метод FollowPlayer
+        cameraFollow.FollowPlayer();
     }
