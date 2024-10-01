@@ -131,4 +131,13 @@ public class CameraTests
         // Вказуємо персонажа, за яким має стежити камера
         cameraFollow.target = playerObject.transform;
     }
+
+    [Test]
+    public void TestCameraFollowPlayer()
+    {
+        // Початкова позиція персонажа
+        playerObject.transform.position = new Vector3(0, 0, 0);
+        cameraObject.transform.position = new Vector3(0, 0, 10); // Камера на відстані по осі Z
+
+    }
 }
