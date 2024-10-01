@@ -12,7 +12,7 @@ public class PlayerStatsTests
         // Створюємо об'єкт гравця та додаємо компонент PlayerStats
         player = new GameObject();
         player.AddComponent<PlayerStats>();
-       
+
     }
 
     [Test]
@@ -152,4 +152,16 @@ public class CameraTests
 
 
     }
-}
+
+    [Test]
+    public void TestCameraNotFollowBeyondLimit()
+    {
+        // Встановлюємо межу позиції персонажа
+        float followLimit = 55;
+
+        // Початкова позиція персонажа нижче межі
+        playerObject.transform.position = new Vector3(50, 0, 0);
+        cameraObject.transform.position = new Vector3(50, 0, 0); // Камера на початковій позиції по осі Z
+
+
+    }
