@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour
     public float smoothSpeed = 0.125f; // Швидкість згладження
     public Vector3 offset; // Відступ камери від персонажа
 
-    void LateUpdate()
+    public void FollowPlayer()
     {
         // Умова для перевірки, чи камера має слідувати
         if (target.position.x <= 55)

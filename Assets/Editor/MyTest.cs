@@ -176,5 +176,7 @@ public class CameraTests
         cameraFollow.FollowPlayer();
 
         // Перевіряємо, що камера більше не слідує за персонажем за межами
-        Assert.AreNotEqual(cameraObject.transform.position.x, playerObject.Object.transform.position.x, "Камера не повинна слідувати за персонажем поза межами.");
+        Assert.AreNotEqual(cameraObject.transform.position.x, playerObject.transform.position.x, "Камера не повинна слідувати за персонажем поза межами.");
     }
+
+}
