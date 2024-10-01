@@ -142,6 +142,10 @@ public class CameraTests
         // Переміщуємо персонажа
         playerObject.transform.position = new Vector3(10, 0, 0);
 
+        // Оновлюємо позицію камери
+        cameraFollow.Update();
+
+
 
     }
 }
