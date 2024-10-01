@@ -145,6 +145,9 @@ public class CameraTests
         // Оновлюємо позицію камери
         cameraFollow.Update();
 
+        // Перевіряємо, чи камера тепер знаходиться біля персонажа
+        Assert.AreEqual(cameraObject.transform.position.x, playerObject.transform.position.x, "Камера не слідує за персонажем по осі X.");
+
 
 
     }
