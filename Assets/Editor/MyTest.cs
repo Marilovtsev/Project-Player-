@@ -165,4 +165,7 @@ public class CameraTests
 
         // Оновлюємо позицію камери через метод FollowPlayer
         cameraFollow.FollowPlayer();
+
+        // Перевіряємо, що камера слідує за персонажем, коли той у межах
+        Assert.AreEqual(cameraObject.transform.position.x, playerObject.transform.position.x, "Камера повинна слідувати за персонажем у межах.");
     }
