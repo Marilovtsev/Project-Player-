@@ -139,5 +139,9 @@ public class CameraTests
         playerObject.transform.position = new Vector3(0, 0, 0);
         cameraObject.transform.position = new Vector3(0, 0, 10); // Камера на відстані по осі Z
 
+        // Переміщуємо персонажа
+        playerObject.transform.position = new Vector3(10, 0, 0);
+
+
     }
 }
