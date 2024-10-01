@@ -111,3 +111,10 @@ public class PlayerStatsTests
         Assert.AreEqual(initialHealt, playerStats.health, "«доров'€ гравц€ повинно залишатис€ незм≥нним.");
     }
 }
+
+public class CameraTests
+{
+    GameObject gameObject;
+    GameObject cameraObject;
+    CameraFollow cameraFollow;
+}
