@@ -117,4 +117,12 @@ public class CameraTests
     GameObject gameObject;
     GameObject cameraObject;
     CameraFollow cameraFollow;
+
+    [SetUp]
+    public void Setup()
+    {
+        // —творюЇмо об'Їкти камери та гравц€
+        cameraObject = new GameObject();
+        playerObject = new GameObject();
+    }
 }
