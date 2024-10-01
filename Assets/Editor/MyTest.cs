@@ -114,8 +114,8 @@ public class PlayerStatsTests
 
 public class CameraTests
 {
-    GameObject gameObject;
     GameObject cameraObject;
+    GameObject playerObject;
     CameraFollow cameraFollow;
 
     [SetUp]
