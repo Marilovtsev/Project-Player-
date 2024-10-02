@@ -29,8 +29,9 @@ public class PlayerStats : MonoBehaviour
     {
         // Відновлення здоров'я
         health += healingAmount;
-        if (health => maxHealth)
+        if (health > maxHealth)
         {
             health = maxHealth; // Запобігаємо перевищенню максимального здоров'я
         }
     }
+}
