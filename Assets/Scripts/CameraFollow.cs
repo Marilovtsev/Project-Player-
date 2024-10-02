@@ -6,6 +6,7 @@ public class CameraFollow : MonoBehaviour
     public Transform target; // Об'єкт, за яким слідує камера (наш персонаж)
     public float smoothSpeed = 0.125f; // Швидкість згладження
     public Vector3 offset; // Відступ камери від персонажа
+    public float followLimit = 55f; // Межа слідування камери
 
     public void FollowPlayer()
     {
