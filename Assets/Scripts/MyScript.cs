@@ -5,7 +5,8 @@ public class PlayerStats : MonoBehaviour
     public string playerName = "Flash"; // ≤м'€ гравц€
     public float speed = 5f; // Ўвидк≥сть гравц€.
     public int health = 100; // «доров'€ гравц€
-    
+    public int maxHealth = 100; // ћаксимальне здоров'€ гравц€
+
 
     void Update()
     {
@@ -21,6 +22,15 @@ public class PlayerStats : MonoBehaviour
         if (health <= 0)
         {
             health = 0; // «апоб≥гаЇмо в≥д'Їмному значенню здоров'€ (якщо здоров'€ стало негативним, ми встановлюЇмо його в 0. ÷е запоб≥гаЇ ситуац≥€м, коли здоров'€ може бути в≥д'Їмним, що не маЇ сенсу в контекст≥ гри.)
-        }           
+        }
     }
-}
+
+    public void Heal(int healingAmount)
+    {
+        // ¬≥дновленн€ здоров'€
+        health += healingAmount;
+        if (health => maxHealth)
+        {
+            health = maxHealth; // «апоб≥гаЇмо перевищенню максимального здоров'€
+        }
+    }
