@@ -11,7 +11,7 @@ public class CameraFollow : MonoBehaviour
     public void FollowPlayer()
     {
         // Умова для перевірки, чи камера має слідувати
-        if (target.position.x <= 55)
+        if (target.position.x <= followLimit)
 
         {
             Vector3 desiredPosition = target.position + offset; // Позиція, до якої повинна переміститися камера
