@@ -171,7 +171,7 @@ public class PlayerStatsTests
         public void TestCameraNotFollowBeyondLimit()
         {
             // Встановлюємо межу позиції персонажа
-            float followLimit = 55;
+            cameraFollow.followLimit = 55;
 
             // Початкова позиція персонажа нижче межі
             playerObject.transform.position = new Vector3(50, 0, 0);
