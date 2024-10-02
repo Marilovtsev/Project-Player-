@@ -110,73 +110,88 @@ public class PlayerStatsTests
         // Перевірка значення здоров'я
         Assert.AreEqual(initialHealt, playerStats.health, "Здоров'я гравця повинно залишатися незмінним.");
     }
-}
-
-public class CameraTests
-{
-    GameObject gameObject;
-    GameObject cameraObject;
-    GameObject playerObject;
-    CameraFollow cameraFollow;
-
-    [SetUp]
-    public void Setup()
-    {
-        // Створюємо об'єкти камери та гравця
-        cameraObject = new GameObject();
-        playerObject = new GameObject();
-
-        // Додаємо до камери скрипт CameraFollow (наш компонент)
-        cameraFollow = cameraObject.AddComponent<CameraFollow>();
-
-        // Вказуємо персонажа, за яким має стежити камера
-        cameraFollow.target = playerObject.transform;
-    }
 
     [Test]
-    public void TestCameraFollowPlayer()
+    public void TestPlayerHealthMaxLimit()
     {
-        // Початкова позиція персонажа
-        playerObject.transform.position = new Vector3(0, 0, 0);
-        cameraObject.transform.position = new Vector3(0, 0, 10); // Камера на відстані по осі Z
+        // Отримуємо компонент PlayerStats
+        PlayerStats playerStats = player.GetComponent<PlayerStats>();
 
-        // Переміщуємо персонажа
-        playerObject.transform.position = new Vector3(10, 0, 0);
+        // Наносимо пошкодження
+        playerStats.TakeDamage(50); // Зменшуємо здоров'я до 50
+        Assert.AreEqual(50, playerStats.health, "Здоров'я гравця повинно бути 50 після пошкодження.");
 
-        // Задаємо позицію камери
-        cameraObject.transform.position = new Vector3(playerObject.transform.position.x, cameraObject.transform.position.y, cameraObject.transform.position.z);
-
-        // Перевіряємо, чи камера тепер знаходиться біля персонажа
-        Assert.AreEqual(cameraObject.transform.position.x, playerObject.transform.position.x, "Камера не слідує за персонажем по осі X.");
-
-
-
+        // Відновлюємо здоров'я на більше, ніж максимальне
+        playerStats.Heal(100); // Має відновити до 100, не більше
+        Assert.AreEqual(playerStats.maxHealth, playerStats.health, "Здоров'я гравця не повинно перевищувати максимальне значення.");
     }
 
-    [Test]
-    public void TestCameraNotFollowBeyondLimit()
+    public class CameraTests
     {
-        // Встановлюємо межу позиції персонажа
-        float followLimit = 55; 
+        GameObject gameObject;
+        GameObject cameraObject;
+        GameObject playerObject;
+        CameraFollow cameraFollow;
 
-        // Початкова позиція персонажа нижче межі
-        playerObject.transform.position = new Vector3(50, 0, 0);
-        cameraObject.transform.position = new Vector3(50, 0, 10); // Камера на початковій позиції по осі Z
+        [SetUp]
+        public void Setup()
+        {
+            // Створюємо об'єкти камери та гравця
+            cameraObject = new GameObject();
+            playerObject = new GameObject();
 
-        // Оновлюємо позицію камери через метод FollowPlayer
-        cameraFollow.FollowPlayer();
+            // Додаємо до камери скрипт CameraFollow (наш компонент)
+            cameraFollow = cameraObject.AddComponent<CameraFollow>();
 
-        // Перевіряємо, що камера слідує за персонажем, коли той у межах
-        Assert.AreEqual(cameraObject.transform.position.x, playerObject.transform.position.x, "Камера повинна слідувати за персонажем у межах.");
+            // Вказуємо персонажа, за яким має стежити камера
+            cameraFollow.target = playerObject.transform;
+        }
 
-        // Переміщуємо персонажа за межу
-        playerObject.transform.position = new Vector3(60, 0, 0);
+        [Test]
+        public void TestCameraFollowPlayer()
+        {
+            // Початкова позиція персонажа
+            playerObject.transform.position = new Vector3(0, 0, 0);
+            cameraObject.transform.position = new Vector3(0, 0, 10); // Камера на відстані по осі Z
 
-        // Оновлюємо позицію камери через метод FollowPlayer
-        cameraFollow.FollowPlayer();
+            // Переміщуємо персонажа
+            playerObject.transform.position = new Vector3(10, 0, 0);
 
-        // Перевіряємо, що камера більше не слідує за персонажем за межами
-        Assert.AreNotEqual(cameraObject.transform.position.x, playerObject.transform.position.x, "Камера не повинна слідувати за персонажем поза межами.");
+            // Задаємо позицію камери
+            cameraObject.transform.position = new Vector3(playerObject.transform.position.x, cameraObject.transform.position.y, cameraObject.transform.position.z);
+
+            // Перевіряємо, чи камера тепер знаходиться біля персонажа
+            Assert.AreEqual(cameraObject.transform.position.x, playerObject.transform.position.x, "Камера не слідує за персонажем по осі X.");
+
+
+
+        }
+
+        [Test]
+        public void TestCameraNotFollowBeyondLimit()
+        {
+            // Встановлюємо межу позиції персонажа
+            float followLimit = 55;
+
+            // Початкова позиція персонажа нижче межі
+            playerObject.transform.position = new Vector3(50, 0, 0);
+            cameraObject.transform.position = new Vector3(50, 0, 10); // Камера на початковій позиції по осі Z
+
+            // Оновлюємо позицію камери через метод FollowPlayer
+            cameraFollow.FollowPlayer();
+
+            // Перевіряємо, що камера слідує за персонажем, коли той у межах
+            Assert.AreEqual(cameraObject.transform.position.x, playerObject.transform.position.x, "Камера повинна слідувати за персонажем у межах.");
+
+            // Переміщуємо персонажа за межу
+            playerObject.transform.position = new Vector3(60, 0, 0);
+
+            // Оновлюємо позицію камери через метод FollowPlayer
+            cameraFollow.FollowPlayer();
+
+            // Перевіряємо, що камера більше не слідує за персонажем за межами
+            Assert.AreNotEqual(cameraObject.transform.position.x, playerObject.transform.position.x, "Камера не повинна слідувати за персонажем поза межами.");
+        }
+
     }
-
 }
