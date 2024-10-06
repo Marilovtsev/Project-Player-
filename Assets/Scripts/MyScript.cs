@@ -41,4 +41,10 @@ public class PlayerController : MonoBehaviour
         // Отримуємо компонент PlayerStats
         playerStats = GetComponent<PlayerStats>();
     }
+
+    void Update()
+    {
+        Move(); // Викликаємо метод руху
+        // Тут можна також додати логіку для отримання пошкоджень або лікування
+    }
 }
