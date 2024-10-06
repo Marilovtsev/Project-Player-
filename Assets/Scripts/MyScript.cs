@@ -8,12 +8,7 @@ public class PlayerStats : MonoBehaviour
     public int maxHealth = 100; // ћаксимальне здоров'€ гравц€
 
 
-    void Update()
-    {
-        // ѕростий приклад руху гравц€.
-        float move = speed * Time.deltaTime;
-        transform.Translate(move, 0, 0);
-    }
+
 
     public void TakeDamage(int damage)
     {
