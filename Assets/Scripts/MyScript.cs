@@ -47,4 +47,12 @@ public class PlayerController : MonoBehaviour
         Move(); // Викликаємо метод руху
         // Тут можна також додати логіку для отримання пошкоджень або лікування
     }
-}
+
+    private void Move()
+    {
+        float moveHorizontal = Input.GetAxis("Horizontal"); // Отримуємо ввід по осі X
+        float moveVertical = Input.GetAxis("Vertical"); // Отримуємо ввід по осі Y
+
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical) * moveSpeed * Time.deltaTime; // Обчислюємо рух
+        transform.Tramslate(movement); // Застосовуємо рух
+    }
