@@ -35,4 +35,10 @@ public class PlayerController : MonoBehaviour
 {
     private PlayerStats playerStats; // Посилання на PlayerStats
     public float moveSpeed = 5f; // Швидкість руху
+
+    void Start()
+    {
+        // Отримуємо компонент PlayerStats
+        playerStats = GetComponent<PlayerStats>();
+    }
 }
