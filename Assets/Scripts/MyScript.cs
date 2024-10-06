@@ -54,5 +54,6 @@ public class PlayerController : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical"); // Отримуємо ввід по осі Y
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical) * moveSpeed * Time.deltaTime; // Обчислюємо рух
-        transform.Tramslate(movement); // Застосовуємо рух
+        transform.Translate(movement); // Застосовуємо рух
     }
+}
