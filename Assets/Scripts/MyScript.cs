@@ -30,3 +30,9 @@ public class PlayerStats : MonoBehaviour
         }
     }
 }
+
+public class PlayerController : MonoBehaviour
+{
+    private PlayerStats playerStats; // Посилання на PlayerStats
+    public float moveSpeed = 5f; // Швидкість руху
+}
