@@ -8,6 +8,12 @@ public class CameraFollow : MonoBehaviour
     public Vector3 offset; // Відступ камери від персонажа
     public float followLimit = 55f; // Межа слідування камери
 
+    void LateUpdate() // Використовуємо LateUpdate для стеження за персонажем
+    {
+        FollowPlayer();
+
+    }
+
     public void FollowPlayer()
     {
         // Умова для перевірки, чи камера має слідувати
